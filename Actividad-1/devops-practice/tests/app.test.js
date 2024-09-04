@@ -18,4 +18,10 @@ describe('GET/', ()=>{
         expect(res.statusCode).toEqual(200);
         expect(res.text).toBe('Hello, World!');
     });
+
+    it('should 7*8 = 56 return Producto: 56 ', async()=>{
+        const res = await request(app).get('/multi/7/8');
+        expect(res.statusCode).toEqual(200);
+        expect(res.text).toBe('Producto: 56');
+    });
 });
