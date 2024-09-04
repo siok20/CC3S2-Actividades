@@ -5,7 +5,7 @@ const app = require('../src/app');
 describe('GET/', ()=>{
     let server;
 
-    beforeAll('GET /', () => {
+    beforeAll(() => {
         server = app.listen(0);
     });
 
