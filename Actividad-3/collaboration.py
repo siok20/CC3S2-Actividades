@@ -1,1 +1,1 @@
-print('I work alone')
+print('Collaboration is key')
