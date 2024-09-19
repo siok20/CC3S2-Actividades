@@ -1,7 +1,2 @@
 Este es el contenido inicial del proyecto
 Este es un cambio en la feature-branch
-<<<<<<< HEAD
-Segundo cambio en la rama main
-=======
-Segundo cambio en feature-branch
->>>>>>> f2c9290 (Segundo commit feature-branch)
