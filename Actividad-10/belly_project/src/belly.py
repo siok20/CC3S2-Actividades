@@ -21,4 +21,8 @@ class Belly:
         # Se han esperado al menos 1.5 horas Y se han comido más de 10 pepinos
         if self.tiempo_esperado >= 1.5 and self.pepinos_comidos > 10:
             return True
+        
+        if self.pepinos_comidos < 5:
+            return False #No gruñe, se han comido muy pocos pepinos
+
         return False

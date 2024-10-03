@@ -9,14 +9,26 @@ belly = Belly()
 def convertir_palabra_a_numero(palabra):
     numeros = {
         "uno": 1, "dos": 2, "tres": 3, "cuatro": 4, "cinco": 5, "seis": 6, "siete": 7,
-        "ocho": 8, "nueve": 9, "diez": 10, "once": 11, "doce": 12, "treinta": 30
+        "ocho": 8, "nueve": 9, "diez": 10, "once": 11, "doce": 12, "treinta": 30, "cuarenta": 40,
+        "cincuenta": 50, "sesenta":60, "setenta": 70, "ochenta": 80, "noventa": 90
     }
     return numeros.get(palabra, 0)  # Retornar 0 si la palabra no está en el diccionario
 
+'''
 # Dado que he comido {cukes:d} pepinos
 @given('he comido {cukes:d} pepinos')
 def step_given_eaten_cukes(context, cukes):
     belly.comer(cukes)
+'''
+# Dado que he comido {cantidad} pepinos
+@given('he comido {cantidad} pepinos')
+def step_given_eaten_cukes(context, cantidad):
+    if cantidad.isdigit():
+        cucumbers = int(cantidad)
+    else:
+        cucumbers = convertir_palabra_a_numero(cantidad) 
+
+    belly.comer(cucumbers)
 
 # Cuando espero "{time_description}"
 @when('espero "{time_description}"')
@@ -45,3 +57,11 @@ def step_then_belly_should_growl(context):
 @then('mi estómago no debería gruñir')
 def step_then_belly_should_not_growl(context):
     assert not belly.esta_gruñendo(), "Se esperaba que el estómago no gruñera, pero lo hizo."
+
+# Entonces mi estómago no puede comer cantidades invalidas
+@then('debería ocurrir un error de cantidad no válida')
+def step_then_invalid_cucumber_amount(context):
+    try:
+        assert belly.pepinos_comidos() < 100, "Cantidad de pepinos no válida"
+    except AssertionError as e:
+        print(str(e))
