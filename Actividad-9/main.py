@@ -1,2 +1,3 @@
-print("Bienvenido al Juego de Adivinanza de Palabras!")
-print("La configuracion inicial del juego se ha completado.")
+import src.game as game
+
+play = game.game()

@@ -12,7 +12,7 @@ git clone https://github.com/siok20/CC3S2-Actividades.git
 ```
 Acceda a la carpeta y corra el archivo principal
 
-```python
+```bash
 cd Actividad-9
 python main.py
 ```
