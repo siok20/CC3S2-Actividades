@@ -25,11 +25,8 @@ jobs:
     - name: Install dependencies
       run: python -m pip install --upgrade pip setuptools wheel
     
-    - name: Create zip
-      run: zip -r game.zip Actividad-9/ -x "README.md" "__pycache__/*"
-    
-    - name: Upload package as artifact
-      uses: actions/upload-artifact@v3
-      with:
-        name: game_v1.0.0
-        path: dist/game.zip
+    - name: Build Docker image
+      run: docker build -t game Actividad-9/.
+
+    - name: Run Docker Container
+      run: docker run -d -p 3000:3000 game
