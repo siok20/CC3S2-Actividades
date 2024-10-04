@@ -1,4 +1,4 @@
-name: CI/CD Pipeline
+name: Empaquetar Juego
 
 on:
   push:
@@ -21,7 +21,15 @@ jobs:
       uses: actions/setup-python@v4
       with:
         python-version: '3.11.7'
+
+    - name: Install dependencies
+      run: python -m pip install --upgrade pip setuptools wheel
     
-    - name: Run game
-      run: python main.py
-      working-directory: Actividad-9
+    - name: Create zip
+      run: zip -r game.zip Actividad-9/ -x "README.md" "__pycache__/*"
+    
+    - name: Upload package as artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: game_v1.0.0
+        path: dist/game.zip
