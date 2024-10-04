@@ -26,3 +26,7 @@ Se creó una clase `game` dentro de la carpeta `/src` que contiene toda la logic
 El archivo `main.py` ejecuta la clase `game` para inicializar un juego
 
 Dentro de `game.py` se inicializa el juego eligiendo la palabra a buscar y empieza el juego, consultando sobre dar pistas y la letra que se adivina. Finalmente, cuando la palabra fue adivinada el juego se cierra.
+
+## Game
+<img src="./images/1.png"/>
+<img src="./images/2.png"/>
