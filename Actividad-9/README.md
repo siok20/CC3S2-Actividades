@@ -30,3 +30,7 @@ Dentro de `game.py` se inicializa el juego eligiendo la palabra a buscar y empie
 ## Game
 <img src="./images/1.png"/>
 <img src="./images/2.png"/>
+
+Añadir la funcion de intentos, vistorias y errotas
+
+<img src="./images/2.png"/>

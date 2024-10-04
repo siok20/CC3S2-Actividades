@@ -18,6 +18,9 @@ class game:
             
             - play: es el progreso del juego inicia con '_' correspondiente
                     a cada letra y se llena progresivamente
+
+            -intentos: la cantidad de intentos permitidos sera de 1.5 veces 
+                       el tamaño de la palabra a adivinar
             
             - pistas: para mayor dinamismo se elije aleatoriamente la 
                       cantidad de pistas
@@ -26,6 +29,7 @@ class game:
         '''
         self.palabra = self.seleccionar_palabra()
         self.play = "_"*len(self.palabra)
+        self.intentos = int(len(self.palabra)*1.5)
         self.pistas = rd.randint(1,2)
         self.yn = "n"
 
@@ -61,6 +65,8 @@ class game:
         '''
         Imprimir en la consola el estado de la partida
 
+        Se disminuye en uno la cantidad de intentos
+
         Se verifica si el atributo play contiene '_'
         dentro, de ser así el juego prosigue, de lo contrario
         significa que no hay más palabras por adivinar, entonces
@@ -69,6 +75,14 @@ class game:
 
         if '_' not in self.play:
             print("Felicidades, encontraste la palabra")
+            exit()
+
+        print(f'Tienes {self.intentos} intentos')
+
+        self.intentos = self.intentos - 1
+
+        if self.intentos < 0:
+            print(f'Lo siento, has perdido. La palabra era: "{self.palabra}"')
             exit()
 
         print()
