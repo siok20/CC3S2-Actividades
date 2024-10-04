@@ -20,3 +20,9 @@ python main.py
 ## Futuras funcionalidades
 Se añadirán funcionalidades como selección aleatoria de palabras, sistema de pistas limitadas y control de intento de fallos
 
+## Segundo Sprint
+Se creó una clase `game` dentro de la carpeta `/src` que contiene toda la logica del juego
+
+El archivo `main.py` ejecuta la clase `game` para inicializar un juego
+
+Dentro de `game.py` se inicializa el juego eligiendo la palabra a buscar y empieza el juego, consultando sobre dar pistas y la letra que se adivina. Finalmente, cuando la palabra fue adivinada el juego se cierra.
