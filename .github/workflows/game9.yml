@@ -21,8 +21,8 @@ jobs:
       uses: docker/login-action@v1
       with: 
         registry: ghcr.io
-        user: ${{ github.actor}}
-        password: ${{github.TOKEN_DEPLOY}}
+        user: ${{github.actor}}
+        password: ${{secrets.TOKEN_DEPLOY}}
         
 
     - name: Set up Python
