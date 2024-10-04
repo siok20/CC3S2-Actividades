@@ -37,7 +37,7 @@ jobs:
     
     - name: Build Docker image
       run: |
-        docker build . --tag ghcr.io/siok20/CC3S2-Actividades:latest
-        docker push ghcr.io/siok20/CC3S2-Actividades:latest
+        docker build . --tag ghcr.io/siok20/cc3s2-actividades:latest
+        docker push ghcr.io/siok20/cc3s2-actividades:latest
       working-directory: Actividad-9
  
