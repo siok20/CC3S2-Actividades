@@ -45,6 +45,7 @@ public class TowerDefenseGame {
     }
     
     public void updateGame(){
+        map.clearEnemies();
         for( Wave wave: waves){
             for(Enemy enemy: wave.getEnemies()){
                 int x = rd.nextInt(size);
@@ -165,6 +166,11 @@ public class TowerDefenseGame {
                 }
                 
                 game.updateGame();
+                
+                if(game.player.getBaseHealth()<=0){
+                    System.out.println("Jugador derrotado");
+                    System.exit(0);
+                }
             }
             catch(NoSuchElementException e) {
                 System.out.println("Input error: " + e.getMessage());
