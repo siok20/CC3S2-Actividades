@@ -33,6 +33,16 @@ public class Map {
         this.grid[x][y] = ' ';
     }
     
+    public void clearEnemies(){
+        for(char[] row: this.grid){
+            for(char c: row){
+                if(c == 'X'){
+                    c = ' ';
+                }
+            }
+        }
+    }
+    
     public boolean isValid(int x, int y){
         return x >= 0 && x < size && y >= 0 && y < size;
     }

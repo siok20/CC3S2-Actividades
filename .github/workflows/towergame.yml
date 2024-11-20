@@ -1,0 +1,39 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+  
+  pull_request:
+    branches:
+      - main
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+    
+        steps:
+        - name: Checkout code
+          uses: actions/checkout@v2
+
+        - name: Set up JDK 11
+          uses: actions/setup-java@v3
+          with:
+            distribution: 'temurin'
+            java-version: '17'
+
+        - name: 
+          uses: actions/cache@v2
+          with:
+            path: ~/.m2/repository
+            key: ${{ runner.os }}-${{ hashFiles('**/pom.xml') }}
+            restore-keys: |
+             ${{ runner.os }}-maven-        
+
+        - name: Install dependencies and build
+          run: mvn clean install
+          working-directory: TowerDefense/
+
+        - name: Build Docker image
+          run: docker build -t tower-game TowerDefense/.

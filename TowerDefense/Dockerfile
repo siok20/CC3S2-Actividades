@@ -2,8 +2,10 @@ FROM openjdk:17
 
 WORKDIR /app
 
-COPY ./src/ /app
+COPY ./TowerDefense/src/main/java/ /app/src
 
-RUN javac *.java
+RUN javac src/cc3s2/towerdefense/*.java -d out
 
-CMD ["java", "TowerDefenseGame"]
+WORKDIR /app/out
+
+CMD ["java", "cc3s2.towerdefense.TowerDefenseGame"]
