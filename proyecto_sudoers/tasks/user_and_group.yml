@@ -8,5 +8,6 @@
   user:
     name: bender
     shell: /bin/bash
+    password: "test"
     groups: desarrolladores
     append: yes
